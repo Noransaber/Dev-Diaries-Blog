@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Projects from './pages/Projects';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path='/signin' element={<Signin />} />
           <Route path='/projects' element={<Projects />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
