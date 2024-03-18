@@ -1,9 +1,6 @@
 import mongoose from 'mongoose';
-// Schema are set of rules for the user model
-let Schema = mongoose.Schema;
 
-// Making new schema for the user model with the rules
-Schema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -17,17 +14,20 @@ Schema = new Schema(
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
     profilePicture: {
       type: String,
-      default: 'https://static.vecteezy.com/system/resources/thumbnails/024/766/962/small/silver-gradient-social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-free-vector.jpg',
+      default: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }
 );
 
-// Make a model from the schema
-const User = mongoose.model('User', Schema);
-// Export it to use it in other files
+const User = mongoose.model('User', userSchema);
+
 export default User;
