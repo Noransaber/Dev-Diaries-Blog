@@ -19,6 +19,10 @@ Schema = new Schema(
       type: String,
       require: true,
     },
+    profilePicture: {
+      type: String,
+      default: 'https://static.vecteezy.com/system/resources/thumbnails/024/766/962/small/silver-gradient-social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-free-vector.jpg',
+    },
   },
   { timestamps: true }
 );
