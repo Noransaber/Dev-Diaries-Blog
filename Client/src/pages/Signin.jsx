@@ -8,15 +8,15 @@ import OAuth from '../components/OAuth';
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   const { loading, error: errorMessage } = useSelector((state) => state.user);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      return dispatch(signInFailure('Please fill in all fields'));
+      return dispatch(signInFailure('Please fill all the fields'));
     }
     try {
       dispatch(signInStart());
@@ -27,10 +27,11 @@ export default function SignIn() {
       });
       const data = await res.json();
       if (data.success === false) {
-        return dispatch(signInFailure(data.message));
+        dispatch(signInFailure(data.message));
       }
+
       if (res.ok) {
-        dispatch(signInSuccess(data.user));
+        dispatch(signInSuccess(data));
         navigate('/');
       }
     } catch (error) {
@@ -58,7 +59,7 @@ export default function SignIn() {
             </div>
             <div>
               <Label value='Your password' />
-              <TextInput type='password' placeholder='********' id='password' onChange={handleChange} />
+              <TextInput type='password' placeholder='**********' id='password' onChange={handleChange} />
             </div>
             <Button gradientDuoTone='purpleToPink' type='submit' disabled={loading}>
               {loading ? (
@@ -67,14 +68,14 @@ export default function SignIn() {
                   <span className='pl-3'>Loading...</span>
                 </>
               ) : (
-                'Sign in'
+                'Sign In'
               )}
             </Button>
             <OAuth />
           </form>
           <div className='flex gap-2 text-sm mt-5'>
-            <span>Dont have an account?</span>
-            <Link to='/signup' className='text-blue-500'>
+            <span>Dont Have an account?</span>
+            <Link to='/sign-up' className='text-blue-500'>
               Sign Up
             </Link>
           </div>
