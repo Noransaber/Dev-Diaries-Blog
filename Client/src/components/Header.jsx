@@ -3,10 +3,13 @@ import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { FaMoon } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { FaMoon, FaSun } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from '../redux/theme/themeSlice';
 
-function Header() {
+export default function Header() {
+  const dispatch = useDispatch();
+  const { theme } = useSelector((state) => state.theme);
   const path = useLocation().pathname;
   const currentUser = useSelector((state) => state.user.currentUser);
   return (
@@ -27,9 +30,9 @@ function Header() {
             to-pink-500 rounded-lg
              text-white'
         >
-          Dev
+          DEV
         </span>
-        Diaries
+        DIARIES
       </Link>
 
       <form>
@@ -39,10 +42,11 @@ function Header() {
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>
-        {/* Moon Button */}
-        <Button className='w-12 h-10 hidden sm:inline' color='gray' pill>
-          <FaMoon />
-        </Button>
+        {
+          <Button className='w-12 h-10 hidden sm:inline' color='gray' pill onClick={() => dispatch(toggleTheme())}>
+            {theme === 'light' ? <FaSun /> : <FaMoon />}
+          </Button>
+        }
         {currentUser ? (
           <Dropdown arrowIcon={false} inline label={<Avatar alt='User' img={currentUser.profilePicture} rounded />}>
             <Dropdown.Header>
@@ -82,5 +86,3 @@ function Header() {
     </Navbar>
   );
 }
-
-export default Header;
