@@ -11,7 +11,7 @@ export default function Header() {
   const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.theme);
   const path = useLocation().pathname;
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const { currentUser } = useSelector(state => state.user);
   return (
     <Navbar className='border-b-2'>
       <Link
@@ -48,7 +48,13 @@ export default function Header() {
           </Button>
         }
         {currentUser ? (
-          <Dropdown arrowIcon={false} inline label={<Avatar alt='User' img={currentUser.profilePicture} rounded />}>
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={<Avatar alt='User' img={currentUser.profilePicture}
+              rounded />
+            }
+          >
             <Dropdown.Header>
               <span className='block text-sm'>@{currentUser.username}</span>
               <span className=' block text-sm font-medium truncate'>{currentUser.email}</span>
