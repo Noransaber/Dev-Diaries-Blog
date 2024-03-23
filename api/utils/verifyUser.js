@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
-import { errorHandler } from './errorHandler';
+import { errorHandler } from './errorHandler.js';
 
 export const verifyToken = async (req, res, next) => {
   // Get token from cookies
-  const token = req.cookies.token.access_token;
+  const token = req.cookies.access_token;
 
   // Check if token exists
   if (!token) {

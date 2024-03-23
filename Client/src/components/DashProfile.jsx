@@ -95,8 +95,7 @@ export default function DashProfile() {
       return;
     }
     try {
-      // dispatch(updateStart());
-
+      dispatch(updateStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: 'PUT',
         headers: {
@@ -106,49 +105,49 @@ export default function DashProfile() {
       });
       const data = await res.json();
       if (!res.ok) {
-        // dispatch(updateFailure(data.message));
+        dispatch(updateFailure(data.message));
         setUpdateUserError(data.message);
       } else {
-        // dispatch(updateSuccess(data));
+        dispatch(updateSuccess(data));
         setUpdateUserSuccess("User's profile updated successfully");
       }
     } catch (error) {
-      // dispatch(updateFailure(error.message));
+      dispatch(updateFailure(error.message));
       setUpdateUserError(error.message);
     }
   };
   const handleDeleteUser = async () => {
-    setShowModal(false);
-    try {
-      // dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
-        method: 'DELETE',
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        // dispatch(deleteUserFailure(data.message));
-      } else {
-        // dispatch(deleteUserSuccess(data));
-      }
-    } catch (error) {
-      // dispatch(deleteUserFailure(error.message));
-    }
+    // setShowModal(false);
+    // try {
+    //   // dispatch(deleteUserStart());
+    //   const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+    //     method: 'DELETE',
+    //   });
+    //   const data = await res.json();
+    //   if (!res.ok) {
+    //     // dispatch(deleteUserFailure(data.message));
+    //   } else {
+    //     // dispatch(deleteUserSuccess(data));
+    //   }
+    // } catch (error) {
+    //   // dispatch(deleteUserFailure(error.message));
+    // }
   };
 
   const handleSignout = async () => {
-    try {
-      const res = await fetch('/api/user/signout', {
-        method: 'POST',
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        console.log(data.message);
-      } else {
-        // dispatch(signoutSuccess());
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
+    //   try {
+    //     const res = await fetch('/api/user/signout', {
+    //       method: 'POST',
+    //     });
+    //     const data = await res.json();
+    //     if (!res.ok) {
+    //       console.log(data.message);
+    //     } else {
+    //       // dispatch(signoutSuccess());
+    //     }
+    //   } catch (error) {
+    //     console.log(error.message);
+    //   }
   };
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
