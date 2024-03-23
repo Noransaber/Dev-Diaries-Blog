@@ -26,8 +26,9 @@ export default function App() {
           </Route>
 
           <Route element={<OnlyAdminPrivateRoute />}>
-            <Route path='/dashboard/create-post' element={<CreatePost />} />
+            <Route path='/create-post' element={<CreatePost />} />
           </Route>
+
           <Route path='/signup' element={<Signup />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/projects' element={<Projects />} />
