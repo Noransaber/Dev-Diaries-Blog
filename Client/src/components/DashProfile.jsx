@@ -117,21 +117,21 @@ export default function DashProfile() {
     }
   };
   const handleDeleteUser = async () => {
-    // setShowModal(false);
-    // try {
-    //   // dispatch(deleteUserStart());
-    //   const res = await fetch(`/api/user/delete/${currentUser._id}`, {
-    //     method: 'DELETE',
-    //   });
-    //   const data = await res.json();
-    //   if (!res.ok) {
-    //     // dispatch(deleteUserFailure(data.message));
-    //   } else {
-    //     // dispatch(deleteUserSuccess(data));
-    //   }
-    // } catch (error) {
-    //   // dispatch(deleteUserFailure(error.message));
-    // }
+    setShowModal(false);
+    try {
+      // dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        dispatch(deleteUserFailure(data.message));
+      } else {
+        dispatch(deleteUserSuccess(data));
+      }
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
   };
 
   const handleSignout = async () => {
