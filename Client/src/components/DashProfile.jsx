@@ -119,7 +119,7 @@ export default function DashProfile() {
   const handleDeleteUser = async () => {
     setShowModal(false);
     try {
-      // dispatch(deleteUserStart());
+      dispatch(deleteUserStart());
       const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
@@ -135,19 +135,19 @@ export default function DashProfile() {
   };
 
   const handleSignout = async () => {
-    //   try {
-    //     const res = await fetch('/api/user/signout', {
-    //       method: 'POST',
-    //     });
-    //     const data = await res.json();
-    //     if (!res.ok) {
-    //       console.log(data.message);
-    //     } else {
-    //       // dispatch(signoutSuccess());
-    //     }
-    //   } catch (error) {
-    //     console.log(error.message);
-    //   }
+    try {
+      const res = await fetch('/api/user/signout', {
+        method: 'POST',
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(signoutSuccess());
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
