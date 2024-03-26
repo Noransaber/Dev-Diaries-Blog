@@ -8,18 +8,18 @@ const postSchema = new mongoose.Schema(
     },
     content: {
       type: String,
-      max: 500,
+      required: true,
     },
     title: {
       type: String,
       required: true,
-      max: 100,
+      unique: true,
     },
     image: {
       type: String,
       default: 'https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png',
     },
-    categories: {
+    category: {
       type: Array,
       default: 'uncategorized',
     },

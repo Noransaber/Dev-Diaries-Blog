@@ -5,7 +5,7 @@ import userRouter from './routes/user.router.js';
 import authRouter from './routes/auth.router.js';
 import cookieParser from 'cookie-parser';
 import postRouter from './routes/post.router.js';
-import commentRouter from './routes/comment.router.js';
+import commentRouter from './routes/comment.route.js';
 // import errorHandler from './utils/errorHandler.js';
 
 // Load environment variables from .env file
