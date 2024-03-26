@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/post', postRouter);
-app.use('./api/comment', commentRouter);
+app.use('/api/comment', commentRouter);
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
