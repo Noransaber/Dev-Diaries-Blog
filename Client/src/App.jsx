@@ -35,7 +35,7 @@ export default function App() {
             <Route path='/update-post/:postId' element={<UpdatePost />} />
           </Route>
 
-          <Route path='/signup' element={<Signup />} />
+          <Route path='/sign-up' element={<Signup />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/post/:postSlug' element={<PostPage />} />

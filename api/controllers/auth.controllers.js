@@ -4,20 +4,23 @@ import { errorHandler } from '../utils/errorHandler.js';
 import jwt from 'jsonwebtoken';
 
 export const signup = async (req, res, next) => {
+  // get the user inforamtion from the request body
   const { username, email, password } = req.body;
-
+  // check if the user has provided all the required fields
   if (!username || !email || !password || username === '' || email === '' || password === '') {
     next(errorHandler(400, 'All fields are required'));
   }
-
+  // Hashing the password
   const hashedPassword = bcryptjs.hashSync(password, 10);
 
+  // Create a new user from the User model
   const newUser = new User({
     username,
     email,
     password: hashedPassword,
   });
 
+  // if everything is ok, save the new user, and send the response to the client
   try {
     await newUser.save();
     res.json('Signup successful');
