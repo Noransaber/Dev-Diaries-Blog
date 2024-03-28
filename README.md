@@ -12,6 +12,8 @@ Dev Diaries is a blogging platform that includes both administrators and users. 
 2. Enhanced Authentication Mechanism
 3. User-Side Features (Viewing and Commenting)
 4. Admin-Side Features (Posting Articles)
+5. Dark mode and light mode
+6. Searching by category, search term, or sorting by oldest and newest.
 
 ## Here are the steps to install and run the project:
 
