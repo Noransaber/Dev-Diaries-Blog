@@ -1,13 +1,12 @@
-# Dev Diaries
+# Dev Diaries📚
 
 Dev Diaries is a blog platform featuring administrators and users. Administrators have the capability to publish articles, while users are able to view these articles and provide comments.
 
-## Project Description:
+## Project Description:🤔
 
 Dev Diaries is a blogging platform that includes both administrators and users. Administrators possess the ability to publish articles, as well as edit or delete posts, comments, and user accounts. Users, on the other hand, can view articles, leave comments, and also edit their own comments. Additionally, the platform incorporates Google authentication for user login.
 
 ### Envisioned Future Features:
-
 1. Integration of Google Authenticatio
 2. Enhanced Authentication Mechanism
 3. User-Side Features (Viewing and Commenting)
@@ -23,7 +22,6 @@ Dev Diaries is a blogging platform that includes both administrators and users. 
 6. Copy the generated link and paste it into your browser.
 
 ## How to Use the Project
-
 ![alt text](image.png)
 
 **Sign in**
