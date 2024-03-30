@@ -6,6 +6,7 @@ import authRouter from './routes/auth.router.js';
 import cookieParser from 'cookie-parser';
 import postRouter from './routes/post.router.js';
 import commentRouter from './routes/comment.route.js';
+import path from 'path';
 // import errorHandler from './utils/errorHandler.js';
 
 // Load environment variables from .env file
@@ -21,6 +22,7 @@ mongoose
     console.error('Could not connect to MongoDB', err);
   });
 
+const __dirname = path.resolve();
 const app = express();
 app.listen(3000, () => {
   console.log('Server is running on port 3000!!!');
@@ -32,6 +34,11 @@ app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/post', postRouter);
 app.use('/api/comment', commentRouter);
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
